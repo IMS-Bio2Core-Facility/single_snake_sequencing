@@ -72,3 +72,7 @@ and general analysis and data handling with `scanpy`.
 - [ ] Parallelise emptyDrops
 - [ ] Support custom references
 - [ ] Support SCTransform?
+
+[sm]: https://snakemake.readthedocs.io/en/stable/index.html "Snakemake"
+[conda]: https://docs.conda.io/en/latest/ "Conda"
+[sing]: https://sylabs.io/singularity/ "Singularity"
