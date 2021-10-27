@@ -1,0 +1,1 @@
+An elbow plot showing the proportion of variance explained by each PC **before** batch correction. If the user does not provide a threshold, then those PCs explaining 85% of the variance are kept. Please see ``Configuration`` for the provide value.

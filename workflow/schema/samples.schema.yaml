@@ -1,0 +1,19 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+
+description: Sample File Schema
+
+patternProperties:
+  \d{1}:
+    description: Lane Number
+    type: object
+    patternProperties:
+      \w:
+        description: Sample Metadata
+        type: object
+        properties:
+          R1: { type: string }
+          R2: { type: string }
+        additionalProperties: true
+        required: [ R1, R2 ]
+
+additionalProperties: false

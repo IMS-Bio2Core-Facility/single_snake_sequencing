@@ -1,0 +1,11 @@
+name: filter_empty
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base==4.1.1
+  - bioconductor-dropletutils==1.12.1
+  - r-logger==0.2.1
+  - r-glue==1.4.2
+  - r-matrix==1.3_4

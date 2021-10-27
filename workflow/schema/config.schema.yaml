@@ -1,0 +1,90 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+
+description: Config File Schema
+
+properties:
+  samples:
+    description: Samplesheet location
+    type: string
+
+  get_cellranger:
+    description: Step Parametres
+    type: object
+    properties:
+      url: { type: string }
+    required: [ url ]
+    additionalProperties: false
+
+  get_reference:
+    description: Step Parametres
+    type: object
+    properties:
+      url: { type: string }
+    required: [ url ]
+    additionalProperties: false
+
+  counts:
+    description: Step Parametres
+    type: object
+    properties:
+      introns: { type: boolean }
+      n_cells: { type: integer }
+      mem: { type: integer }
+    required: [ introns, n_cells, mem ]
+    additionalProperties: false
+
+  filter_empty:
+    description: Step Parametres
+    type: object
+    properties:
+      niters: { type: integer }
+    required: [niters]
+    additionalProperties: false
+
+  qc:
+    description: Step Parametres
+    type: object
+    properties:
+      pct_counts_mt: { type: integer }
+      total_counts: { type: integer }
+      n_genes_by_counts: { type: integer }
+    required: [ pct_counts_mt, total_counts, n_genes_by_counts ]
+    additionalProperties: false
+
+  dim_reduc:
+    description: Step Parametres
+    type: object
+    properties:
+      nHVG: { type: integer }
+      var_thresh: { type: number }
+    additionalProperties: false
+
+  cluster:
+    description: Step Parametres
+    type: object
+    properties:
+      res: { type: number }
+      markers:
+        type: array
+        items: { type: string }
+    required: [ res ]
+    additionalProperties: false
+
+  densities:
+    description: Step Parametres
+    type: object
+    properties:
+      features:
+        type: array
+        items: { type: string }
+    additionalProperties: false
+
+additionalProperties: false
+required:
+  - samples
+  - get_cellranger
+  - get_reference
+  - counts
+  - filter_empty
+  - qc
+  - cluster

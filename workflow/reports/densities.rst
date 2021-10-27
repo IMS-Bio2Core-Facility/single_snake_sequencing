@@ -1,0 +1,1 @@
+UMAPs showing the embedding densities for user-defined features. For each feature, one UMAP is shown per category within that feature. Densities are relative - that is, the absolute values can only be compared within one feature; however, the relative values let us see if there are trends towards uneven distributions.

@@ -1,0 +1,1 @@
+Dotplot of marker genes by cluster. The color represents the log2 fold change while the size represents the percent of cells in the cluster expressing the gene. The top 5 genes by Z-score are shown in each cluster. These data are from the log-normalised, but **not** scaled and batch-corrected, counts.

@@ -1,0 +1,104 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  py_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache Nox
+        uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 1
+        with:
+          path: .nox
+          key:
+            ${{ runner.os }}-nox-${{ env.CACHE_NUMBER }}-${{ hashFiles('noxfile.py') }}
+      - name: Setup Nox
+        uses: excitedleigh/setup-nox@v2.0.0
+      - name: black_isort_flake8_mypy
+        run: nox -s form lint type
+      - name: safety
+        run: nox -s security
+
+  snake_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache Conda
+        uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('workflow/envs/cicd_min.yaml') }}
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: cicd_min
+          channel-priority: strict
+          environment-file: workflow/envs/cicd_min.yaml
+          use-only-tar-bz2: true
+          miniforge-variant: Mambaforge
+          miniforge-version: 4.10.3-6
+          use-mamba: true
+      - name: Snakefmt_lint
+        run: |
+          snakemake --lint
+          snakefmt workflow
+          # - name: Snakemake unit tests
+          # run: pytest .tests/unit
+          # - name: Snakemake integration tests
+          # run: pytest .tests/integration
+
+  R_check:
+    # There is a cacheable install, but it requires a proper R package
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: "4.1.1"
+          use-public-rspm: true
+      - name: Install Dependencies
+        run: install.packages(c("lintr", "styler"))
+        shell: Rscript {0}
+      - name: lintr
+        run: lintr::lint_dir()
+        shell: Rscript {0}
+      - name: styler
+        run: styler::style_dir()
+        shell: Rscript {0}
+
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [py_check, snake_check, R_check]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Python Semantic Release
+        uses: relekang/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

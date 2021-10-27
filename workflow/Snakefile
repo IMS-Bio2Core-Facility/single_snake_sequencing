@@ -1,0 +1,36 @@
+from snakemake.utils import validate
+
+
+configfile: "config/config.yaml"
+
+
+container: "docker://condaforge/mambaforge:4.10.3-6"
+
+
+include: "rules/common.smk"
+include: "rules/resources.smk"
+include: "rules/qc_reads.smk"
+include: "rules/counts.smk"
+include: "rules/qc_droplets.smk"
+include: "rules/analysis.smk"
+include: "rules/downstream.smk"
+
+
+rule report:
+    input:
+        "results/multiqc/multiqc.html",
+        expand("results/counts/{sample}/outs/web_summary.html", sample=SAMPLES),
+        expand("results/filter_empty/{sample}/knee_plot.png", sample=SAMPLES),
+        expand("results/filter_empty/{sample}/tail_end_plot.png", sample=SAMPLES),
+        expand("results/qc/{sample}/qc_violin.png", sample=SAMPLES),
+        expand("results/qc/{sample}/mt_scatter.png", sample=SAMPLES),
+        expand("results/qc/{sample}/n_gene_scatter.png", sample=SAMPLES),
+        expand("results/qc/{sample}/n_top_genes.png", sample=SAMPLES),
+        expand("results/doublets/{lane}/table.png", lane=LANES),
+        "results/dim_reduc/hvgs.png",
+        "results/dim_reduc/elbow.png",
+        "results/cluster/umap.png",
+        "results/cluster/markers.pdf",
+        "results/cluster/dotplot.png",
+        "results/cluster/de_genes.xlsx",
+        "results/densities/densities.pdf",

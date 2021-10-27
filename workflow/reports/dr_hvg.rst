@@ -1,0 +1,1 @@
+Scatter plot displaying the dispersion of genes before and after their normalisation. Highly variable genes are indicated in black. We expect to see a black triangle(-ish) in the top half for normalised dispersions.

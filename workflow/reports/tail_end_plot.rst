@@ -1,0 +1,1 @@
+Histogram of UMI count frequency for those droplets with 25 < counts < 2000. The minimum threshold, below which all droplets were considered empty, was calculated as the mean of this distribution plus 2 times its standard deviation.

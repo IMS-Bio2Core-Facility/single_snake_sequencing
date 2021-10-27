@@ -1,0 +1,12 @@
+name: dim_reduc
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.9.7
+  - scanpy==1.8.1
+  - anndata==0.7.6
+  - matplotlib==3.4.3
+  - harmonypy==0.0.5
+  - scikit-misc==0.1.3

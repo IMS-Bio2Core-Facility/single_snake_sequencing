@@ -1,0 +1,8 @@
+name: cicd_min
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - snakemake==6.6.1
+  - snakefmt==0.4.4
