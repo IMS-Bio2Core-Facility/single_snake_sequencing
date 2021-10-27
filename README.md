@@ -29,7 +29,7 @@ HOLDING
 
 ## Notes on Configuration
 
-> :warning: Be sure to change the configuration to suit your project!
+> :warning:  **Be sure to change the configuration to suit your project!**
 
 For a full discussion of configuration,
 please see the [configuration README](config/README.md).
