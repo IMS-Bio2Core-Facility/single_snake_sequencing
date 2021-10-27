@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![CI/CD](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/actions/workflows/cicd.yml/badge.svg)](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/actions/workflows/cicd.yml)
+[![CI/CD](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/actions/workflows/cicd.yaml/badge.svg)](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/actions/workflows/cicd.yaml)
 [![Codestyle: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Codestyle: snakefmt](https://img.shields.io/badge/code%20style-snakefmt-000000.svg)](https://github.com/snakemake/snakefmt)
 
