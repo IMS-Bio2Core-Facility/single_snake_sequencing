@@ -88,7 +88,7 @@ for the bleeding edge,
 please clone the repo like so:
 
 ```shell
-git clone https://github.com/IMS-Bio2Core-Facility/GTExSnake
+git clone https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing
 ```
 
 > :warning: **Heads Up!**
