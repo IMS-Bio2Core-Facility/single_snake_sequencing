@@ -67,7 +67,7 @@ page on github and download the most recent version.
 The following will do the trick:
 
 ```shell
-curl -s https://api.github.com/repos/IMS-Bio2Core-Facility/GTExSnake/releases/latest |
+curl -s https://api.github.com/repos/IMS-Bio2Core-Facility/single_snake_sequencing/releases/latest |
 grep tarball_url |
 cut -d " " -f 4 |
 tr -d '",' |

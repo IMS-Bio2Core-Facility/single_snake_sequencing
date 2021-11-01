@@ -56,7 +56,7 @@ using the commands below:
 
 ```shell
 conda env create -f workflows/envs/devel.yml
-conda activate bic083-devel
+conda activate devel
 pre-commit install --install-hooks
 ```
 
@@ -179,7 +179,7 @@ Not a necessity,
 but for you terminal warriors out there,
 it just might help!
 
-[issues]: https://github.com/IMS-Bio2Core-Facility/BIC089-Stefania-Carrobio/issues "Issues"
+[issues]: https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/issues "Issues"
 [conda]: https://docs.conda.io/en/latest/ "Conda"
 [nox]: https://nox.thea.codes/en/stable/ "Nox"
 [pre-commit]: https://pre-commit.com/ "Pre-commit"
