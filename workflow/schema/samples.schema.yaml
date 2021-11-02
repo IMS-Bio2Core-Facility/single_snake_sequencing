@@ -7,7 +7,7 @@ patternProperties:
     description: Lane Number
     type: object
     patternProperties:
-      \w:
+      ^[^\W_]*$:
         description: Sample Metadata
         type: object
         properties:
@@ -15,5 +15,6 @@ patternProperties:
           R2: { type: string }
         additionalProperties: true
         required: [ R1, R2 ]
+    additionalProperties: false
 
 additionalProperties: false
