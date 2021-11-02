@@ -1,4 +1,4 @@
 "1":
-  your_sample:
+  sample1:
     R1: "path/to/your/data/r1.fq.gz"
     R2: "path/to/your/data/r2.fq.gz"
