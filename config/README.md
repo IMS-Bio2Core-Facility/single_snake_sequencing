@@ -5,7 +5,7 @@ Don't worry about typos, etc.
 These are all enforced with Snakemake's brilliant
 [schema validation](https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#validation).
 
-## congif.yaml
+## config.yaml
 
 ### samplesheet
 
