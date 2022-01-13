@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.2 (2022-01-13)
+### Fix
+* **README.md:** Update usage instructions ([`7e2d60e`](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/commit/7e2d60eb8e802cfe9dd69648b05f3ee2822089b0))
+
+### Documentation
+* **config/README.md:** Correct spelling error ([`ff8e524`](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/commit/ff8e524840208c9d97288eaca2995f07e8cc4b15))
+
 ## v0.1.1 (2021-11-02)
 ### Fix
 * **config:** Correct sample name ([`d22da64`](https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/commit/d22da64075de0a7635003d1c56e6f0af93dd34ad))
