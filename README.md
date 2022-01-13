@@ -8,6 +8,8 @@
 
 A [Snakemake][sm] workflow for standardised sc/snRNAseq analysis.
 
+**_Find us in the "Standardized Usage" Section of the [Snakemake Workflow Catalog][sm_wc]_**
+
 Every single cell analysis is slightly different.
 This represents what I would call a "core" analysis,
 as nearly every analysis I perform start with something very akin to this.
@@ -25,26 +27,11 @@ we can run the whole thing in an isolated environment.
 
 ## Notes on Installation
 
-### Necessary Software
+A full walkthrough on how to install and use this pipeline
+can be found [here][sm_wc].
 
-This pipeline needs [conda][conda]
-and [snakemake][sm]
-installed,
-and runs best if you also have [singularity][sing]
-installed,
-though it's not required.
-
-Snakemake recommends using [mambaforge][mambaforge]
-as your base conda,
-which I would also recommend.
-Installation instructions are at the above link.
-If you prefer a vanilla conda installation,
-you can always try `mamba` following the instructions at the above snakemake link.
-Once you have conda installed,
-install snakemake as outlined on their page
-(again, see the above link)
-and activate your snakemake environment.
-
+To take advantage of Singularity,
+you'll need to install that separately.
 If you are running on a Linux system,
 then singularity can be installed from conda like so:
 
@@ -61,6 +48,10 @@ Snakemake will still run each step in its own Conda environment,
 it just won't put each Conda environment in a container.
 
 ### Get the Source Code
+
+Alternatively,
+you may grab the source code.
+You likely will not need these steps if you aren't planning to contribute.
 
 Navigate to our [release][releases]
 page on github and download the most recent version.
@@ -98,37 +89,6 @@ git clone https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing
 However you choose to install it,
 `cd` into the directory.
 
-### Running
-
-Once you've installed the above software,
-and fetched the code,
-running the pipeline is as simple as:
-
-```shell
-snakemake --use-conda --use-singularity --cores 6
-```
-
-If you aren't using `singularity`,
-then leave off the apropriate flag, as so:
-
-```shell
-snakemake --use-conda --cores 6
-```
-
-And `snakemake` will automatically leave it off.
-
-## Notes on Configuration
-
-> :warning:  **Be sure to change the configuration to suit your project!**
-
-For a full discussion of configuration,
-please see the [configuration README](config/README.md).
-
-Briefly,
-the general configuration file must be located at `config/config.yaml`.
-A samplesheet containing information pertaining to the data must be supplied as well.
-Both are schema validated.
-
 ## Notes on Data
 
 This pipeline expects de-multiplexed fastq.gz files,
@@ -141,7 +101,7 @@ but we recommend creating a `data` directory in your project for them.
 The analysis pipeline was run using Snakemake v6.6.1.
 The full version and software lists can be found under the relevant yaml files in `workflow/envs`.
 The all reasonable efforts have been made to ensure that the repository adheres to the best practices
-outlined [here](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html).
+outlined [here][sm_bp].
 
 ## Notes on the analysis
 
@@ -168,4 +128,6 @@ and general analysis and data handling with `scanpy`.
 [sing]: https://sylabs.io/singularity/ "Singularity"
 [mambaforge]: https://github.com/conda-forge/miniforge#mambaforge "Mambaforge"
 [sing_install]: https://sylabs.io/guides/3.8/admin-guide/installation.html#installation-on-windows-or-mac "Singularity Install"
+[sm_wc]: https://snakemake.github.io/snakemake-workflow-catalog?usage=IMS-Bio2Core-Facility/single_snake_sequencing "Usage Instructions"
+[sm_bp]: https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html "Snakemake Best Practices"
 [releases]: https://github.com/IMS-Bio2Core-Facility/single_snake_sequencing/releases "Releases"
